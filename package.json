@@ -1,0 +1,71 @@
+{
+  "name": "comment-translate-transmart",
+  "displayName": "Comment Translate TranSmart",
+  "description": "Tencent TranSmart translate source for comment-translate",
+  "version": "0.0.1",
+  "publisher": "naomi233",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "translateSource",
+    "tencent transmart",
+    "腾讯交互翻译",
+    "comment translate",
+    "翻译",
+    "注释",
+    "翻訳"
+  ],
+  "homepage": "https://github.com/Henvy-Mango/comment-translate-transmart#readme",
+  "bugs": {
+    "url": "https://github.com/Henvy-Mango/comment-translate-transmart/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Henvy-Mango/comment-translate-transmart.git"
+  },
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "icon": "image/logo.png",
+  "extensionDependencies": [
+    "intellsmi.comment-translate"
+  ],
+  "contributes": {
+    "translates": [
+      {
+        "translate": "transmart",
+        "title": "Tencent TranSmart Translate"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:build": "vsce package --no-dependencies",
+    "vscode:publish": "vsce publish --no-dependencies",
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "@vscode/vsce": "^2.22.0",
+    "esbuild": "^0.19.11",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "comment-translate-manager": "^0.0.5"
+  }
+}
